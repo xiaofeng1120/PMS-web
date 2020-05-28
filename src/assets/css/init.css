@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/**
+初始化样式
+*/
+html, body {
+  height: 100%;
+  font-size: 16px;
+  font-family: 'Microsoft YaHei,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,PingFang SC';
+  padding:0px;
+  margin:0px;
+}
+body {
+  background: inherit;
+}
+ul, li, dl, dd, dt, p, ol, h1, h2, h3, h4, h5 {
+  font-size: 16px;
+  font-weight: 100;
+  padding: 0;
+  margin: 0;
+}
+ul, ol {
+  list-style-type: none;
+}
+a, a:hover, a:visited, a:focus {
+  text-decoration: none;
+}
+textarea {
+  resize: none;
+}
+/**
+网站的主要色调  各种公用样式定义
+*/
