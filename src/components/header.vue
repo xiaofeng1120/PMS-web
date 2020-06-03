@@ -19,7 +19,7 @@
       <div id="head" @mouseenter="handleShowMenu" @click="alert" @mouseleave="handleHideMenu">
         <h2>测试用户</h2>
         <i class="el-icon-caret-bottom"></i>
-        <transition>
+        <transition name="slide-down">
           <ul v-show="showMenu">
             <li>
               <span>PMS</span>
@@ -30,7 +30,7 @@
                 <router-link to="/logsolt">操作日志</router-link>
                 <router-link to="/usermanagement">用户管理</router-link>
                 <router-link to="/blacklist">黑名单</router-link>
-                <router-link to="/">房间管理</router-link>
+                <router-link to="/smssolt">智能短信</router-link>
                 <router-link to="/">房间管理</router-link>
                 <router-link to="/">房间管理</router-link>
                 <router-link to="/">房间管理</router-link>
@@ -194,5 +194,15 @@ export default {
       }
     }
   }
+  .slide-down-enter-active {
+  transition: all 0.3s ease;
+}
+ .slide-down-leave-active {
+  transition: all 0.3s ease;
+}
+ .slide-down-enter,
+ .slide-down-leave-to {
+  transform: translateY(-15px);
+}
 }
 </style>

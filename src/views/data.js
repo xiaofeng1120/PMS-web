@@ -11,6 +11,7 @@ export default {
         { day: "06-03", count: "26", week: "三" },
         { day: "06-04", count: "25", week: "四" }
     ],
+    //roomType的值 0=>空房 1=>入住  2=>预定 3=>脏房
     list: [
         {
             roomName: "单人间",
@@ -21,91 +22,71 @@ export default {
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 0,
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    price: '180',//房间价格
+                },
+                {
+                    is_locking: true,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 1,//是否脏房
+                    user: { name: "张三先生" },//用户信息
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    roomType: 2,//是否脏房
+                    user: { name: "张三先生", source: '散客' },//用户信息
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 0,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 0,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    roomType: 1,//是否脏房
+                    user: { name: "李四先生", source: '线下客户' },//用户信息
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 3,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    roomType: 1,//是否脏房
+                    user: { name: "王五先生", source: '散客' },//用户信息
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    roomType: 1,//是否脏房
+                    user: { name: "张三先生", source: '长住客' },//用户信息
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 0,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
-                    price: '180',//房间价格
-                },
-                {
-                    is_locking: false,//是否锁定
-                    is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
             ]
@@ -116,94 +97,74 @@ export default {
             id: 2,
             day: '',
             item: [
+
+
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 0,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 2,//是否脏房
+                    user: { name: "张三先生", source: '散客' },//用户信息
+                    price: '180',//房间价格
+                }, {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 0,
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 0,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    roomType: 1,//是否脏房
+                    user: { name: "李四先生", source: '线下客户' },//用户信息
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 0,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    roomType: 1,//是否脏房
+                    user: { name: "张三先生", source: '长住客' },//用户信息
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 3,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
                 {
-                    is_locking: false,//是否锁定
+                    is_locking: true,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 1,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
-                },
-                {
+                }, {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
-                    price: '180',//房间价格
-                },
-                {
-                    is_locking: false,//是否锁定
-                    is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    roomType: 1,//是否脏房
+                    user: { name: "王五先生", source: '散客' },//用户信息
                     price: '180',//房间价格
                 },
             ]
@@ -217,91 +178,68 @@ export default {
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    roomType: 1,//是否脏房
+                    user: { name: "李四先生", source: '线下客户' },//用户信息
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 0,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    roomType: 1,//是否脏房
+                    user: { name: "张三先生", source: '长住客' },//用户信息
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 3,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    price: '180',//房间价格
+                },
+                {
+                    is_locking: true,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 1,//是否脏房
+                    user: { name: "张三先生" },//用户信息
+                    price: '180',//房间价格
+                }, {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 1,//是否脏房
+                    user: { name: "王五先生", source: '散客' },//用户信息
+                    price: '180',//房间价格
+                }, {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 0,//是否脏房
+                    user: { name: "张三先生" },//用户信息
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 2,//是否脏房
+                    user: { name: "张三先生", source: '散客' },//用户信息
+                    price: '180',//房间价格
+                }, {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 0,
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 0,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
-                    price: '180',//房间价格
-                },
-                {
-                    is_locking: false,//是否锁定
-                    is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
-                    price: '180',//房间价格
-                },
-                {
-                    is_locking: false,//是否锁定
-                    is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
-                    price: '180',//房间价格
-                },
-                {
-                    is_locking: false,//是否锁定
-                    is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
-                    price: '180',//房间价格
-                },
-                {
-                    is_locking: false,//是否锁定
-                    is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
             ]
@@ -309,100 +247,152 @@ export default {
         {
             roomName: "单人间",
             roomNumber: "204",
+            id:4,
             day: '',
-            id: 4,
             item: [
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    roomType: 1,//是否脏房
+                    user: { name: "张三先生", source: '长住客' },//用户信息
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 3,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    price: '180',//房间价格
+                },
+                {
+                    is_locking: true,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 1,//是否脏房
+                    user: { name: "张三先生" },//用户信息
+                    price: '180',//房间价格
+                }, {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 1,//是否脏房
+                    user: { name: "王五先生", source: '散客' },//用户信息
+                    price: '180',//房间价格
+                }, {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 0,//是否脏房
+                    user: { name: "张三先生" },//用户信息
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 2,//是否脏房
+                    user: { name: "张三先生", source: '散客' },//用户信息
+                    price: '180',//房间价格
+                }, {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 0,
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 0,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
+                    roomType: 1,//是否脏房
+                    user: { name: "李四先生", source: '线下客户' },//用户信息
                     price: '180',//房间价格
                 },
                 {
                     is_locking: false,//是否锁定
                     is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
+                    roomType: 0,//是否脏房
                     user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
-                    price: '180',//房间价格
-                },
-                {
-                    is_locking: false,//是否锁定
-                    is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
-                    price: '180',//房间价格
-                },
-                {
-                    is_locking: false,//是否锁定
-                    is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
-                    price: '180',//房间价格
-                },
-                {
-                    is_locking: false,//是否锁定
-                    is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
-                    price: '180',//房间价格
-                },
-                {
-                    is_locking: false,//是否锁定
-                    is_active: false,//是否激活
-                    is_dirty: false,//是否脏房
-                    user: { name: "张三先生" },//用户信息
-                    inHouse: true,//是否入住了
-                    is_reserve: false,//是否预定
                     price: '180',//房间价格
                 },
             ]
         },
+        {
+            roomName: "单人间",
+            roomNumber: "205",
+            id:5,
+            day: '',
+            item: [
+                {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 1,//是否脏房
+                    user: { name: "李四先生", source: '线下客户' },//用户信息
+                    price: '180',//房间价格
+                },
+                {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 0,//是否脏房
+                    user: { name: "张三先生" },//用户信息
+                    price: '180',//房间价格
+                },
+                {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 1,//是否脏房
+                    user: { name: "张三先生", source: '长住客' },//用户信息
+                    price: '180',//房间价格
+                },
+                {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 3,//是否脏房
+                    user: { name: "张三先生" },//用户信息
+                    price: '180',//房间价格
+                },
+                {
+                    is_locking: true,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 1,//是否脏房
+                    user: { name: "张三先生" },//用户信息
+                    price: '180',//房间价格
+                }, {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 1,//是否脏房
+                    user: { name: "王五先生", source: '散客' },//用户信息
+                    price: '180',//房间价格
+                }, {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 0,//是否脏房
+                    user: { name: "张三先生" },//用户信息
+                    price: '180',//房间价格
+                },
+                {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 2,//是否脏房
+                    user: { name: "张三先生", source: '散客' },//用户信息
+                    price: '180',//房间价格
+                }, {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 0,
+                    user: { name: "张三先生" },//用户信息
+                    price: '180',//房间价格
+                },
+                {
+                    is_locking: false,//是否锁定
+                    is_active: false,//是否激活
+                    roomType: 0,//是否脏房
+                    user: { name: "张三先生" },//用户信息
+                    price: '180',//房间价格
+                },
+            ]
+        }
     ]
 }

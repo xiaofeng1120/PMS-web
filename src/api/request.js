@@ -1,29 +1,27 @@
 import axios from 'axios'
-const http = axios.create({
-    // 公共接口
-    //baseURL: process.env.BASE_API,
-    // 超时时间 单位是ms
-    timeout: 5 * 1000
-  })
+// import Router from '@/router/index'
+var  token = "277e0b594b89d61bc78ade10b10368da";
+axios.defaults.timeout = 5000;
 //请求拦截器
-http.interceptors.request.use(config=>{
-    config.data=JSON.stringify(config.data);
-    config.header={
-        'Content-Type':'application/x-www-form-urlencoded'
-    }
-    console.log("请求前的拦截");
-    //loading 开始
-    return config
-},error=>{
-    Promise.reject(error)
-})
+axios.interceptors.request.use(function (config) {
+    console.log("请求拦截器",config);
+    config.headers['x-phone-userid'] = token;
+    config.headers['Content-Type'] ='application/x-www-form-urlencoded';
+    // 在发送请求之前做些什么
+    // if(config){
+    //     console.log(Router);
+    //     Router.push('/index')
+    // }
+    return config;
+}, function (error) {
+    // 对请求错误做些什么
+    return Promise.reject(error);
+});
 //响应拦截器
-http.interceptors.response.use(response => {
-    //接收到响应数据并成功后的一些共有的处理，关闭loading等
-    console.log(response);
-    //loading 关闭
+axios.interceptors.response.use(response => {
+    console.log("响应拦截器",response)
     return response
-  }, err => {
+}, err => {
     if (err && err.response) {
         switch (err.response.status) {
             case 400:
@@ -65,23 +63,17 @@ http.interceptors.response.use(response => {
             default:
                 err.message = `连接错误${err.response.status}`
         }
-    } else {
-        // err.message = '连接到服务器失败'
     }
-    //如果不需要错误处理，以上的处理过程都可省略
-    return Promise.resolve(err.response)
-  })
-  export default {
-    get (url, params, headers) {
-        let options = {}//默认值
+})
+export default {
+    get(url, params) {
+        let options = {}
         if (params) options.params = params
-        if (headers) options.headers = headers
-        return http.get(url, options)
-      },
-    post (url, params, headers) {
-        let options = {}//默认值
+        return axios.get(url, options)
+    },
+    post(url, params) {
+        let options = {}
         if (params) options.params = params
-        if (headers) options.headers = headers
-        return http.post(url, params, options)
+        return axios.post(url, params)
     }
 }

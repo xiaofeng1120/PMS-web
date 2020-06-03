@@ -1,7 +1,7 @@
 <template>
   <div class="alertPage">
     <el-drawer :visible="is_show" :with-header="false" @close="handleClose">
-      <div v-show="reserve==1">
+      <div v-show="reserve==1" class="Index">
         <header>
           <div>
             <span>{{$store.state.room.roomNumber}} {{$store.state.room.hoursType}}</span>
@@ -9,7 +9,12 @@
           <div>
             <el-button size="small" type="primary" @click="handleReserve">预定</el-button>
             <el-button size="small" type="primary" @click="Locking">锁房</el-button>
-            <el-button size="small" type="primary" @click="setDirty" v-if="!($store.state.room.roomStatus=='脏房')">设为脏</el-button>
+            <el-button
+              size="small"
+              type="primary"
+              @click="setDirty"
+              v-if="!($store.state.room.roomStatus=='脏房')"
+            >设为脏</el-button>
             <el-button size="small" type="primary" @clic="setClean" v-else>设为净</el-button>
           </div>
         </header>
@@ -291,7 +296,7 @@ export default {
       default: false
     }
   },
-  components:{
+  components: {
     Scan
   },
   watch: {
@@ -340,69 +345,75 @@ export default {
         textarea: ""
       },
       reserve: 1, //快速入住，如果为false，显示房间预定
-      Status:-1,// 2 是自动扫描  1是手动录入
+      Status: -1, // 2 是自动扫描  1是手动录入
       activeName: ["0", "1", "2"],
       lockingForm: {
         value1: "",
-        radio:'',
-        textarea:''
+        radio: "",
+        textarea: ""
       }
     };
   },
   created() {},
   methods: {
-    Cancel(){//锁房取消
-      this.reserve=1;
+    Cancel() {
+      //锁房取消
+      this.reserve = 1;
     },
-    lockingSubmit(){//锁房提交
-      if(this.lockingForm.value1==''){
-        return this.$message.error("请选择时间!")
-      }else if(this.lockingForm.radio==''){
-        return this.$message.error("请选择锁房原因!")
-      }else{
+    lockingSubmit() {
+      //锁房提交
+      if (this.lockingForm.value1 == "") {
+        return this.$message.error("请选择时间!");
+      } else if (this.lockingForm.radio == "") {
+        return this.$message.error("请选择锁房原因!");
+      } else {
         this.$message.success("锁定房间成功");
         this.$emit("closeAlert");
       }
     },
-    closeScan(){
+    closeScan() {
       this.dialogFormVisible = false;
     },
-    setDirty(){
-      this.$confirm('确认设置为脏房?', '', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
+    setDirty() {
+      this.$confirm("确认设置为脏房?", "", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
           this.$message({
-            type: 'success',
-            message: '删除成功!'
+            type: "success",
+            message: "删除成功!"
           });
           this.$emit("closeAlert");
-        }).catch(() => {
+        })
+        .catch(() => {
           this.$message({
-            type: 'info',
-            message: '已取消删除'
+            type: "info",
+            message: "已取消删除"
           });
-          this.$emit("closeAlert");         
+          this.$emit("closeAlert");
         });
     },
-    setClean(){
-      this.$confirm('确认设置为净房?', '', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
+    setClean() {
+      this.$confirm("确认设置为净房?", "", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
           this.$message({
-            type: 'success',
-            message: '删除成功!'
+            type: "success",
+            message: "删除成功!"
           });
           this.$emit("closeAlert");
-        }).catch(() => {
+        })
+        .catch(() => {
           this.$message({
-            type: 'info',
-            message: '已取消删除'
+            type: "info",
+            message: "已取消删除"
           });
-          this.$emit("closeAlert");         
+          this.$emit("closeAlert");
         });
     },
     handleClose() {
@@ -418,7 +429,7 @@ export default {
     },
     Manual() {
       //手动录入
-      this.Status=1;
+      this.Status = 1;
       this.dialogFormVisible = true;
     },
     showDialog() {
@@ -431,7 +442,7 @@ export default {
       setTimeout(() => {
         loading.close();
         //模拟请求接口
-        this.Status=2;
+        this.Status = 2;
         this.dialogFormVisible = true;
       }, 1000);
     },
@@ -499,6 +510,9 @@ header {
     }
   }
 }
+.Index{
+  height:100%;
+}
 .tabs {
   display: flex;
   align-items: center;
@@ -510,7 +524,6 @@ header {
     line-height: 40px;
     box-sizing: border-box;
     border-bottom: 0px solid transparent;
-    border-radius: 4px 4px 0px 0px;
     cursor: pointer;
     position: relative;
     &.active {
@@ -547,6 +560,8 @@ h3 {
 }
 .main {
   padding: 0px 15px;
+      height: calc(100% - 150px);
+    overflow-y: auto;
   .btnList {
     display: flex;
     align-items: center;
@@ -576,10 +591,11 @@ h3 {
 }
 .alertFooter {
   position: absolute;
-  bottom: 15px;
+  bottom: 0px;
   left: 0px;
   right: 0px;
-  padding: 0px 15px;
+  padding: 0px 15px 15px;
+  background: #f5f5f5;
   ul {
     display: flex;
     align-items: center;
@@ -636,24 +652,24 @@ h3 {
   }
 }
 //解锁 锁定样式
-.locking{
-  padding:0px 15px;
-  height:100%;
-  h2{
+.locking {
+  padding: 0px 15px;
+  height: 100%;
+  h2 {
     height: 50px;
-    line-height:50px;
+    line-height: 50px;
   }
-  .header{
-    display:flex;
+  .header {
+    display: flex;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
   }
-  .el-radio-group>div{
-    line-height:30px;
+  .el-radio-group > div {
+    line-height: 30px;
   }
-  h3{
-    padding:0px;
-    line-height:40px;
+  h3 {
+    padding: 0px;
+    line-height: 40px;
   }
 }
 </style>

@@ -66,12 +66,17 @@ import usermanagement from '../views/usermanagement/usermanagement.vue'
  */
 import blacklist from '../views/blacklist/blacklist.vue'
 
+/**
+ * 智能短信
+ */
+import smssolt from '../views/sms/smssolt.vue'
+import autosms from '../views/sms/autosms.vue'//自动短信服务
+
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Index',
     component: index
   },
   {
@@ -90,7 +95,6 @@ const routes = [
     component: ordersolt,
     children: [{
       path: '/',
-      name: 'Order',
       component: order,
     }, {
       path: 'order',
@@ -135,7 +139,6 @@ const routes = [
     children: [
       {
         path: '/',
-        name: 'businessform',
         component: businessform
       }
       , {
@@ -170,7 +173,6 @@ const routes = [
     component: hotelsolt,
     children: [{
       path: '/',
-      name: 'consumption',
       component: consumption
     },
     {
@@ -216,7 +218,6 @@ const routes = [
     children: [
       {
         path: '/',
-        name: 'operationlog',
         component: operationlog
       },
       {
@@ -240,10 +241,25 @@ const routes = [
     path: '/blacklist',
     name: 'blacklist',
     component: blacklist
+  },
+  {
+    path: '/smssolt',
+    name: 'smssolt',
+    component: smssolt,
+    children: [
+      {
+        path:'/',
+        name: 'autosms',
+        component: autosms
+      },
+      {
+        path:'autosms',
+        name: 'autosms',
+        component: autosms
+      }
+    ]
   }
 ]
-
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,

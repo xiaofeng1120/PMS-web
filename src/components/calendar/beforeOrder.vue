@@ -1,10 +1,10 @@
 <template>
   <div class="reservePage">
-    <el-drawer :visible="show" :with-header="false" @close="handleClose">
+    <el-drawer :visible="Type==2" :with-header="false" @close="handleClose">
       <div v-show="type==0" class="fristPage">
         <header>
           <div class="left">
-            <h2>{{$store.state.room.roomNumber}} {{$store.state.room.hoursType}}</h2>
+            <h2>{{$store.state.rooms.roomNumber}} {{$store.state.rooms.type}}</h2>
             <el-button type="primary">换房</el-button>
           </div>
           <div class="right">
@@ -15,7 +15,7 @@
         <section>
           <div class="content">
             <h5>
-              {{$store.state.room.roomNumber}} {{$store.state.room.hoursType}}
+              {{$store.state.rooms.roomNumber}} {{$store.state.rooms.type}}
               <span
                 v-if="$store.state.room.roomStatus!='脏房'"
               >为净房</span>
@@ -114,7 +114,7 @@
           </footer>
         </section>
       </div>
-      <div v-show="type==1" class="inhouse">
+     <div v-show="type==1" class="inhouse">
         <header>
           <div>
             <i class="el-icon-arrow-left" @click="type=0"></i>
@@ -127,7 +127,7 @@
             <el-collapse-item name="0">
               <template slot="title">
                 <div class="slotTitle">
-                  <span>{{$store.state.room.roomNumber}} {{$store.state.room.hoursType}}</span>
+                  <span>{{$store.state.rooms.roomNumber}} {{$store.state.rooms.type}}</span>
                   <span>1晚</span>
                   <span>￥200</span>
                 </div>
@@ -189,7 +189,7 @@
                       </el-form>
                     </div>
                     <div>
-                      <img src="../assets/imgs/ren.png" />
+                      <img src="@/assets/imgs/ren.png" />
                     </div>
                   </li>
                 </ul>
@@ -226,7 +226,7 @@
                       </el-form>
                     </div>
                     <div>
-                      <img src="../assets/imgs/ren.png" />
+                      <img src="@/assets/imgs/ren.png" />
                     </div>
                   </li>
                 </ul>
@@ -321,7 +321,7 @@
             <el-collapse-item name="1">
               <template slot="title">
                 <div class="slotTitle">
-                  <span>{{$store.state.room.roomNumber}} {{$store.state.room.hoursType}}</span>
+                  <span>{{$store.state.rooms.roomNumber}} {{$store.state.rooms.type}}</span>
                   <span>1晚</span>
                   <span>￥200</span>
                 </div>
@@ -426,9 +426,9 @@
 <script>
 export default {
   props: {
-    show: {
-      type: Boolean,
-      default: false
+    Type: {
+      type:String || Number,
+      default:'2'
     }
   },
   watch: {
@@ -490,7 +490,7 @@ export default {
        this.handleClose();
     },
     handleClose() {
-      this.$emit("closeReserve");
+      this.$emit("closeLock");
     },
     handleInhours() {
       this.type = 1;

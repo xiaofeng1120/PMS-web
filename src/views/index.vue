@@ -137,8 +137,7 @@ export default {
     };
   },
   created() {
-    var date = this.$moment(new Date()).format("YYYY[年]MM[月]DD[日]");
-    this.date = date;
+     this.date = this.$moment(this.$store.state.date).format("YYYY[年]MM[月]DD[日]");
   },
   mounted() {},
   methods: {
@@ -216,7 +215,7 @@ export default {
     }
     section {
       text-align: left;
-      height: calc(100% - 56px);
+      height: calc(100% - 150px);
       overflow-y: auto;
       padding: 10px 0px;
       .roomBox > li {

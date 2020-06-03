@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 房间状态 -->
       <div class="text" @click="handleIsall" :class="hoursStatusActive==-1?'is_all':''">
             <img src="../assets/imgs/all.png" />
             <span>全部</span>
@@ -16,6 +17,7 @@
         <span>({{item.count}})</span>
       </li>
     </ul>
+    <!-- 房型 -->
     <div class="text" @click="handleCheckall" :class="hoursTypeActive==-1?'is_all':''">
             <img src="../assets/imgs/all.png" />
             <span>全部</span>
@@ -32,6 +34,12 @@
         <span>({{item.count}})</span>
       </li>
     </ul>
+    <!-- 楼层 -->
+    <h3 class="floor">
+      <el-select v-model="floorId" size="small">
+        <el-option :label="item.name" :value="item.id" v-for="(item,index) in floorList" :key="index"></el-option>
+      </el-select>
+    </h3>
   </div>
 </template>
 
@@ -55,11 +63,19 @@ export default {
             { id: 3, name: "豪华房", count: "12" },
             { id: 4, name: "商务房", count: "8" },
             { id: 5, name: "总统套房", count: "3" }
+      ],
+      floorId:0,
+      floorList:[
+        {id:0,name:'所有楼层'},
+        {id:1,name:'一楼'},
+        {id:2,name:'二楼'},
+        {id:3,name:'三楼'},
+        {id:4,name:'四楼'},
+        {id:5,name:'五楼'},
+        {id:6,name:'六楼'},
       ]
     };
   },
-  created() {},
-  mounted() {},
   methods: {
     handleClick(i) {
         if (this.hoursStatusActive != i) this.hoursStatusActive = i;
@@ -72,7 +88,7 @@ export default {
     },
     handleCheckall(){
         if (this.hoursTypeActive != -1) this.hoursTypeActive = -1;
-    }
+    },
   }
 };
 </script>
@@ -108,6 +124,15 @@ export default {
     &.active {
       background: #5ea3ff;
       color: #fff;
+    }
+  }
+  .floor{
+    margin:10px 0px;
+    text-align:center;
+    padding:20px 0px;
+    border-top:1px solid #eee;
+    .el-select{
+      width:80%;
     }
   }
 </style>

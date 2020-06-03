@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <keep-alive>
-          <Header />
-      </keep-alive>
+      <smsMenu />
     </div>
     <div class="view">
       <router-view/>
@@ -11,11 +9,10 @@
   </div>
 </template>
 <script>
-import Header from './components/header'
-import './assets/css/init.css'
+import smsMenu from "../../components/sms_menu";
 export default {
     components:{
-      Header
+      smsMenu
     },
     data() {
         return {
@@ -23,7 +20,9 @@ export default {
         };
     },
     created(){},
-    mounted() {},
+    mounted() {
+
+    },
     methods: {
 
     }
@@ -39,4 +38,15 @@ export default {
     height: calc(100% - 60px);
     margin: 0px auto;
   }
+#nav {
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
 </style>
